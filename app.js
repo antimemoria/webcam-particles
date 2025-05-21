@@ -60,7 +60,6 @@ async function loadFaceModel() {
     const tf = await import('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js');
     const faceLandmarksDetection = await import('https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection@0.0.3/dist/face-landmarks-detection.js');
     
-    await tf.ready();
     faceModel = await faceLandmarksDetection.load(
         faceLandmarksDetection.SupportedPackages.mediapipeFacemesh,
         { maxFaces: 1 }
