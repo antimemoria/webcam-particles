@@ -68,7 +68,18 @@ async function loadFaceModel() {
     console.log("Modelo de rostros cargado!");
 }
 
-loadFaceModel().catch(err => console.error("Error cargando modelo:", err));
+async function loadFaceModel() {
+    // Cargar el modelo correctamente
+    faceModel = await faceLandmarksDetection.load(
+        faceLandmarksDetection.SupportedPackages.mediapipeFacemesh,
+        { 
+            maxFaces: 1,
+            shouldLoadIrisModel: false, // Mejora el rendimiento
+            shouldLoadFaceMeshModel: true 
+        }
+    );
+    console.log("Modelo de rostros cargado!");
+}
 
 // 6. Animación con detección de rostros
 async function animate() {
